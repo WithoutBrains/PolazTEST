@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emailer</title>
+    <style>
+        #successList span{
+            color: green;
+        }
+        #errorList span{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul id='successList'>
+        <?php
+            if (isset($report['success'])) {
+                foreach ($report['success'] as $email) {
+                    echo "<li><span>Отправлено: ".$email."</span></li>";
+                }
+            }
+        ?>
+    </ul>
+    <ul id='errorList'>
+        <?php
+            if (isset($report['error'])) { 
+                foreach ($report['error'] as $email) {
+                    echo "<li><span>Не отправлено: ".$email."</span></li>";
+                }
+            }
+        ?>
+    </ul>
+    <a href="<?php echo HOST ?>">Отправить еще пару писем?</a>
+</body>
+</html>

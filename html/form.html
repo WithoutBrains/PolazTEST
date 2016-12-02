@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emailer</title>
+    <link rel="stylesheet" type="text/css" href="<?php echo HOST ?>css/style.css">
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script type="text/javascript" src="<?php echo HOST ?>js/script.js"></script>
+</head>
+<body>
+    <form method="post" id="emailForm" enctype="multipart/form-data">
+        <p class="red"><?php echo isset($mail_msg) ? $mail_msg : 'Все поля обязательны для заполнения.' ?></p>
+
+        <input type="text" name="emailer_subj" placeholder="Тема письма" value="<?php if(isset($_POST['emailer_subj'])) echo $_POST['emailer_subj']; ?>">
+        <textarea name="emailer_mails" placeholder="Почтовые адреса(через запятую)"><?php if(isset($_POST['emailer_mails'])) echo $_POST['emailer_mails']; ?></textarea>
+        <textarea id="emailer_text" name="emailer_text" placeholder="Текст письма"><?php if(isset($_POST['emailer_text'])) echo $_POST['emailer_text']; ?></textarea>
+        <input type="text" name="emailer_yourmail" placeholder="Ваша почта" value="<?php if(isset($_POST['emailer_yourmail'])) echo $_POST['emailer_yourmail']; ?>">
+        <input type="file" name="files[]" multiple="true">
+
+        <div id="selectedFiles"></div>
+        <input type="submit" value="Отправить">
+    </form>
+</body>
+</html>
+
+
