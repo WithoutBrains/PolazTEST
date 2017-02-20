@@ -1,5 +1,5 @@
 <?php
-// \\
+// \\ //
 session_start();
 set_time_limit (0);
 header("Content-type: text/html; charset=utf-8");
